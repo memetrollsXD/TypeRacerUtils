@@ -24,14 +24,15 @@ namespace TypeRacerUtils
             gkh.HookedKeys.Add(Keys.P);
             gkh.HookedKeys.Add(Keys.A);
             gkh.HookedKeys.Add(Keys.CapsLock);
+            gkh.HookedKeys.Add(Keys.LShiftKey);
+            gkh.HookedKeys.Add(Keys.RShiftKey);
             gkh.KeyDown += new KeyEventHandler(gkh_KeyDown);
             gkh.KeyUp += new KeyEventHandler(gkh_KeyUp);
             hooked = true;
             Print("Successfully Hooked!");
         }
         [DllImport("user32.dll")]
-static extern void keybd_event(byte bVk, byte bScan, uint dwFlags,
-UIntPtr dwExtraInfo);
+    static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
         globalKeyboardHook gkh = new globalKeyboardHook();
         public bool hooked;
         private void hookBtn_Click(object sender, EventArgs e)
@@ -51,16 +52,34 @@ UIntPtr dwExtraInfo);
                 Print("Successfully Unhooked!");
             }
         }
-        public bool hold;
+        public bool holdctrl;
+        public bool holdshft;
+        public int count = 0;
         void gkh_KeyDown(object sender, KeyEventArgs e)
         {
+         /*   if (shiftBox.Checked)
+            {
+                if (e.KeyCode.ToString() == "LShiftKey" | e.KeyCode.ToString() == "RShiftKey")
+                {
+                    holdshft = true;
+                }
+                if(holdshft)
+                {
+                    count++;
+                    
+                    if (count < 1)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            } */
             if (shortBox.Checked)
             {
                 if (e.KeyCode.ToString() == "LControlKey" | e.KeyCode.ToString() == "RControlKey")
                 {
-                    hold = true;
+                    holdctrl = true;
                 }
-                if(hold) {
+                if(holdctrl) {
                     if (e.KeyCode.ToString() == "S" | e.KeyCode.ToString() == "P")
                     {
                         e.Handled = true;
@@ -85,9 +104,17 @@ UIntPtr dwExtraInfo);
             {
                 if (e.KeyCode.ToString() == "LControlKey" | e.KeyCode.ToString() == "RControlKey")
                 {
-                    hold = false;
+                    holdctrl = false;
                 }
             }
+            /* if (shiftBox.Checked)
+            {
+                if (e.KeyCode.ToString() == "LShiftKey" | e.KeyCode.ToString() == "RShiftKey")
+                {
+                    holdshft = false;
+                    count = 0;
+                } 
+            } */
         }
         void Print(string str)
         {
