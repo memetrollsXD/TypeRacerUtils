@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using WindowsInput;
+using WindowsInput.Native;
 
 namespace TypeRacerUtils
 {
@@ -26,6 +28,31 @@ namespace TypeRacerUtils
             gkh.HookedKeys.Add(Keys.CapsLock);
             gkh.HookedKeys.Add(Keys.LShiftKey);
             gkh.HookedKeys.Add(Keys.RShiftKey);
+            gkh.HookedKeys.Add(Keys.Back);
+            gkh.HookedKeys.Add(Keys.B);
+            gkh.HookedKeys.Add(Keys.C);
+            gkh.HookedKeys.Add(Keys.D);
+            gkh.HookedKeys.Add(Keys.E);
+            gkh.HookedKeys.Add(Keys.F);
+            gkh.HookedKeys.Add(Keys.G);
+            gkh.HookedKeys.Add(Keys.H);
+            gkh.HookedKeys.Add(Keys.I);
+            gkh.HookedKeys.Add(Keys.J);
+            gkh.HookedKeys.Add(Keys.K);
+            gkh.HookedKeys.Add(Keys.L);
+            gkh.HookedKeys.Add(Keys.M);
+            gkh.HookedKeys.Add(Keys.N);
+            gkh.HookedKeys.Add(Keys.O);
+            gkh.HookedKeys.Add(Keys.Q);
+            gkh.HookedKeys.Add(Keys.R);
+            gkh.HookedKeys.Add(Keys.T);
+            gkh.HookedKeys.Add(Keys.U);
+            gkh.HookedKeys.Add(Keys.V);
+            gkh.HookedKeys.Add(Keys.W);
+            gkh.HookedKeys.Add(Keys.X);
+            gkh.HookedKeys.Add(Keys.Y);
+            gkh.HookedKeys.Add(Keys.Z);
+            gkh.HookedKeys.Add(Keys.Alt);
             gkh.KeyDown += new KeyEventHandler(gkh_KeyDown);
             gkh.KeyUp += new KeyEventHandler(gkh_KeyUp);
             hooked = true;
@@ -53,26 +80,16 @@ namespace TypeRacerUtils
             }
         }
         public bool holdctrl;
-        public bool holdshft;
-        public int count = 0;
         void gkh_KeyDown(object sender, KeyEventArgs e)
         {
-         /*   if (shiftBox.Checked)
+            if (backBox.Checked)
             {
-                if (e.KeyCode.ToString() == "LShiftKey" | e.KeyCode.ToString() == "RShiftKey")
+                if (e.KeyCode.ToString() == "Back")
                 {
-                    holdshft = true;
+                    InputSimulator sim = new InputSimulator();
+                    sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_A);
                 }
-                if(holdshft)
-                {
-                    count++;
-                    
-                    if (count < 1)
-                    {
-                        e.Handled = true;
-                    }
-                }
-            } */
+            }
             if (shortBox.Checked)
             {
                 if (e.KeyCode.ToString() == "LControlKey" | e.KeyCode.ToString() == "RControlKey")
@@ -90,11 +107,11 @@ namespace TypeRacerUtils
             {
                 if (Control.IsKeyLocked(Keys.CapsLock)) // Checks Capslock is on
                 {
-                    const int KEYEVENTF_EXTENDEDKEY = 0x1;
-                    const int KEYEVENTF_KEYUP = 0x2;
-                    keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY, (UIntPtr)0);
-                    keybd_event(0x14, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP,
-                    (UIntPtr)0);
+                    InputSimulator imp = new InputSimulator();
+                    imp.Keyboard.KeyPress(VirtualKeyCode.CAPITAL);
+                } else
+                {
+                    return;
                 }
             }
         }
@@ -107,18 +124,22 @@ namespace TypeRacerUtils
                     holdctrl = false;
                 }
             }
-            /* if (shiftBox.Checked)
-            {
-                if (e.KeyCode.ToString() == "LShiftKey" | e.KeyCode.ToString() == "RShiftKey")
-                {
-                    holdshft = false;
-                    count = 0;
-                } 
-            } */
         }
         void Print(string str)
         {
             outputBox.Text = str;
         }
+
+        private void topBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (topBox.Checked)
+            {
+                this.TopMost = true;
+            } else
+            {
+                this.TopMost = false;
+            }
+        }
+
     }
 }

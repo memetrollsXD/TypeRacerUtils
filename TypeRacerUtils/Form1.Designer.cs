@@ -33,7 +33,8 @@ namespace TypeRacerUtils
             this.outputBox = new System.Windows.Forms.TextBox();
             this.shortBox = new System.Windows.Forms.CheckBox();
             this.capsBox = new System.Windows.Forms.CheckBox();
-            this.shiftBox = new System.Windows.Forms.CheckBox();
+            this.topBox = new System.Windows.Forms.CheckBox();
+            this.backBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // hookBtn
@@ -74,28 +75,41 @@ namespace TypeRacerUtils
             this.capsBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.capsBox.Location = new System.Drawing.Point(12, 99);
             this.capsBox.Name = "capsBox";
-            this.capsBox.Size = new System.Drawing.Size(242, 21);
+            this.capsBox.Size = new System.Drawing.Size(147, 21);
             this.capsBox.TabIndex = 3;
-            this.capsBox.Text = "Disable Caps Lock (Experimental)";
+            this.capsBox.Text = "Disable Caps Lock";
             this.capsBox.UseVisualStyleBackColor = true;
             // 
-            // shiftBox
+            // topBox
             // 
-            this.shiftBox.AutoSize = true;
-            this.shiftBox.Location = new System.Drawing.Point(12, 126);
-            this.shiftBox.Name = "shiftBox";
-            this.shiftBox.Size = new System.Drawing.Size(136, 21);
-            this.shiftBox.TabIndex = 4;
-            this.shiftBox.Text = "1 Character Shift";
-            this.shiftBox.UseVisualStyleBackColor = true;
-            this.shiftBox.Visible = false;
+            this.topBox.AutoSize = true;
+            this.topBox.Location = new System.Drawing.Point(12, 331);
+            this.topBox.Name = "topBox";
+            this.topBox.Size = new System.Drawing.Size(107, 21);
+            this.topBox.TabIndex = 5;
+            this.topBox.Text = "Stay on Top";
+            this.topBox.UseVisualStyleBackColor = true;
+            this.topBox.CheckedChanged += new System.EventHandler(this.topBox_CheckedChanged);
+            // 
+            // backBox
+            // 
+            this.backBox.AutoSize = true;
+            this.backBox.Checked = true;
+            this.backBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.backBox.Location = new System.Drawing.Point(12, 126);
+            this.backBox.Name = "backBox";
+            this.backBox.Size = new System.Drawing.Size(130, 21);
+            this.backBox.TabIndex = 6;
+            this.backBox.Text = "One Backspace";
+            this.backBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 392);
-            this.Controls.Add(this.shiftBox);
+            this.Controls.Add(this.backBox);
+            this.Controls.Add(this.topBox);
             this.Controls.Add(this.capsBox);
             this.Controls.Add(this.shortBox);
             this.Controls.Add(this.outputBox);
@@ -115,7 +129,8 @@ namespace TypeRacerUtils
         private System.Windows.Forms.TextBox outputBox;
         private System.Windows.Forms.CheckBox shortBox;
         private System.Windows.Forms.CheckBox capsBox;
-        private System.Windows.Forms.CheckBox shiftBox;
+        private System.Windows.Forms.CheckBox topBox;
+        private System.Windows.Forms.CheckBox backBox;
     }
 }
 
