@@ -15,9 +15,9 @@ using WindowsInput.Native;
 
 namespace TypeRacerUtils
 {
-    public partial class Form1 : Form
+    public partial class TypeRacerUtils : Form
     {
-        public Form1()
+        public TypeRacerUtils()
         {
             InitializeComponent();
             gkh.HookedKeys.Add(Keys.LControlKey);
@@ -82,12 +82,22 @@ namespace TypeRacerUtils
         public bool holdctrl;
         void gkh_KeyDown(object sender, KeyEventArgs e)
         {
+            if (mouseBox.Checked)
+            {
+                DisableMouse();
+            }
             if (backBox.Checked)
             {
                 if (e.KeyCode.ToString() == "Back")
                 {
-                    InputSimulator sim = new InputSimulator();
-                    sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_A);
+                    if (ctrlaRadio.Checked) { 
+                        InputSimulator sim = new InputSimulator();
+                        sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_A);
+                    } else
+                    {
+                        InputSimulator sim = new InputSimulator();
+                        sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.BACK);
+                    }
                 }
             }
             if (shortBox.Checked)
@@ -140,6 +150,12 @@ namespace TypeRacerUtils
                 this.TopMost = false;
             }
         }
+        private void DisableMouse()
+        {
+            Win32.POINT p = new Win32.POINT(100, 500);
 
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+        }
     }
 }

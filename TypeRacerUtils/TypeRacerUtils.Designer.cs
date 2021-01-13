@@ -1,7 +1,7 @@
 ﻿
 namespace TypeRacerUtils
 {
-    partial class Form1
+    partial class TypeRacerUtils
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,9 @@ namespace TypeRacerUtils
             this.capsBox = new System.Windows.Forms.CheckBox();
             this.topBox = new System.Windows.Forms.CheckBox();
             this.backBox = new System.Windows.Forms.CheckBox();
+            this.mouseBox = new System.Windows.Forms.CheckBox();
+            this.ctrlbRadio = new System.Windows.Forms.RadioButton();
+            this.ctrlaRadio = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // hookBtn
@@ -103,11 +106,48 @@ namespace TypeRacerUtils
             this.backBox.Text = "One Backspace";
             this.backBox.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // mouseBox
+            // 
+            this.mouseBox.AutoSize = true;
+            this.mouseBox.Checked = true;
+            this.mouseBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mouseBox.Location = new System.Drawing.Point(12, 153);
+            this.mouseBox.Name = "mouseBox";
+            this.mouseBox.Size = new System.Drawing.Size(205, 21);
+            this.mouseBox.TabIndex = 7;
+            this.mouseBox.Text = "Disable Mouse while Typing";
+            this.mouseBox.UseVisualStyleBackColor = true;
+            // 
+            // ctrlbRadio
+            // 
+            this.ctrlbRadio.AutoSize = true;
+            this.ctrlbRadio.Location = new System.Drawing.Point(244, 126);
+            this.ctrlbRadio.Name = "ctrlbRadio";
+            this.ctrlbRadio.Size = new System.Drawing.Size(117, 21);
+            this.ctrlbRadio.TabIndex = 8;
+            this.ctrlbRadio.Text = "CTRL + BACK";
+            this.ctrlbRadio.UseVisualStyleBackColor = true;
+            // 
+            // ctrlaRadio
+            // 
+            this.ctrlaRadio.AutoSize = true;
+            this.ctrlaRadio.Checked = true;
+            this.ctrlaRadio.Location = new System.Drawing.Point(148, 126);
+            this.ctrlaRadio.Name = "ctrlaRadio";
+            this.ctrlaRadio.Size = new System.Drawing.Size(90, 21);
+            this.ctrlaRadio.TabIndex = 9;
+            this.ctrlaRadio.TabStop = true;
+            this.ctrlaRadio.Text = "CTRL + A";
+            this.ctrlaRadio.UseVisualStyleBackColor = true;
+            // 
+            // TypeRacerUtils
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 392);
+            this.Controls.Add(this.ctrlaRadio);
+            this.Controls.Add(this.ctrlbRadio);
+            this.Controls.Add(this.mouseBox);
             this.Controls.Add(this.backBox);
             this.Controls.Add(this.topBox);
             this.Controls.Add(this.capsBox);
@@ -116,7 +156,7 @@ namespace TypeRacerUtils
             this.Controls.Add(this.hookBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "TypeRacerUtils";
             this.Text = "TypeRacer Utils";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -131,6 +171,9 @@ namespace TypeRacerUtils
         private System.Windows.Forms.CheckBox capsBox;
         private System.Windows.Forms.CheckBox topBox;
         private System.Windows.Forms.CheckBox backBox;
+        private System.Windows.Forms.CheckBox mouseBox;
+        private System.Windows.Forms.RadioButton ctrlbRadio;
+        private System.Windows.Forms.RadioButton ctrlaRadio;
     }
 }
 
