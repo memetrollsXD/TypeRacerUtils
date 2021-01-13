@@ -19,6 +19,7 @@ TypeRacer Utilities to make your life easier<br><br>
 <h2>Disable Mouse while Typing</h2>
 
 <p>Your mouse can get in the way while typing, and that's very annoying. With this feature the mouse will be disabled while you are typing.</p>
+<hr>
 
 # Installation 
 Simply go to the "[Releases](https://github.com/memetrollsXD/TypeRacerUtils/releases/)" tab and download "TypeRacerUtils.zip"
