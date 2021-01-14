@@ -107,7 +107,7 @@ namespace TypeRacerUtils
                     holdctrl = true;
                 }
                 if(holdctrl) {
-                    if (e.KeyCode.ToString() == "S" | e.KeyCode.ToString() == "P")
+                    if (e.KeyCode.ToString() == "S" | e.KeyCode.ToString() == "P" | e.KeyCode.ToString() == "O" | e.KeyCode.ToString() == "H")
                     {
                         e.Handled = true;
                     }
