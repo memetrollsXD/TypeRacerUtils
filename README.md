@@ -1,7 +1,7 @@
 # TypeRacerUtils
 
 TypeRacer Utilities to make your life easier<br><br>
-![App](https://cdn.discordapp.com/attachments/517955652761550848/798651963884961848/unknown.png)<br>
+![App](https://cdn.discordapp.com/attachments/517955652761550848/798909014981083176/CvwOpBrM4S84EtQAAAAASUVORK5CYII.png)<br>
 # Features
 
 <h2>Disable Save and Print shortcuts like CTRL + S and CTRL + P</h2>
@@ -15,6 +15,10 @@ TypeRacer Utilities to make your life easier<br><br>
 <h2>Disable Caps Lock</h2> 
 
 <p>You can disable caps lock easily with this app</p><br>
+<hr>
+<h2>Disable Mouse while Typing</h2>
+
+<p>Your mouse can get in the way while typing, and that's very annoying. With this feature the mouse will be disabled while you are typing.</p>
 <hr>
 
 # Installation 
